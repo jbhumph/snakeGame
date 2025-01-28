@@ -13,7 +13,7 @@ import data.*;
 public class GameControlInput {
 
 
-    public static void handleKeyPress(KeyEvent e, Snake snake, Grid grid) {
+    public static boolean handleKeyPress(KeyEvent e, Snake snake, Grid grid) {
         int x = snake.getHead().getRow();
         int y = snake.getHead().getCol();
         boolean session = true;
@@ -56,6 +56,8 @@ public class GameControlInput {
 
         if (!session) {
             System.out.println("Game Over!");
+            return false;
         }
+        return true;
     }
 }

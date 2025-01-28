@@ -16,6 +16,7 @@ public class GamePanel extends JPanel implements KeyListener {
     private Grid grid;
     private Snake snake;
     private Timer timer;
+    boolean play = true;
 
     public GamePanel() {
         this.setPreferredSize(new Dimension(SCREEN_WIDTH, SCREEN_HEIGHT));
@@ -36,7 +37,11 @@ public class GamePanel extends JPanel implements KeyListener {
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-        draw(g);
+        if (play){
+            draw(g);
+        } else {
+            drawEnd(g);
+        }
     }
 
     public void draw(Graphics g) {
@@ -60,6 +65,15 @@ public class GamePanel extends JPanel implements KeyListener {
         }
     }
 
+    public void drawEnd(Graphics g) {
+        for (int i = 0; i < WIDTH; i++) {
+            for (int j = 0; j < HEIGHT; j++) {
+                g.setColor(Color.RED);
+                g.fillOval(j * TILE_SIZE, i * TILE_SIZE, TILE_SIZE, TILE_SIZE);
+            }
+        }
+    }
+
     /*@Override
     public void actionPerformed(ActionEvent e) {
         boolean session = snake.move(cell, grid);
@@ -70,10 +84,15 @@ public class GamePanel extends JPanel implements KeyListener {
         repaint();
     }*/
 
+
     @Override
     public void keyPressed(KeyEvent e) {
-        GameControlInput.handleKeyPress(e, snake, grid);
-        repaint();
+        if (play) {
+            play = GameControlInput.handleKeyPress(e, snake, grid);
+            repaint();
+        } else {
+            repaint();
+        }
     }
 
     @Override
