@@ -1,14 +1,14 @@
 package data;
 
-import java.util.LinkedList;
+import linkedList.*;
 
 public class Snake {
-    private LinkedList<Cell> cells;
+    private BasicLinkedList<Cell> cells;
     private Cell head;
 
     // constructor
     public Snake(Cell initial) {
-        cells = new LinkedList<Cell>();
+        cells = new BasicLinkedList<Cell>();
         head = initial;
         cells.add(head);
         cells.getFirst().setFill("snake");
@@ -30,6 +30,7 @@ public class Snake {
 
         if (test) {
             head = cell;
+            System.out.println("HHHHHHHHHHHHHH");
             if (cell.getFill().equals("empty")) {
                 cells.add(head);
                 cells.getFirst().setFill("empty");
