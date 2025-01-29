@@ -9,7 +9,6 @@ public class Grid {
     public Grid(int rows, int cols) {
         this.rows = rows;
         this.cols = cols;
-
         cells = new Cell[rows][cols];
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < cols; j++) {
@@ -18,11 +17,7 @@ public class Grid {
         }
     }
 
-    // returns memory address of all cells on board
-    public Cell[][] getCells() {
-        return cells;
-    }
-
+    // returns a cell at a specific coordinate
     public Cell getCell(int row, int col) {
         return cells[row][col];
     }

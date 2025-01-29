@@ -24,13 +24,11 @@ public class Snake {
         boolean test = false;
         if (cells.size() == 1) {
             test = true;
-        } else if (cell.getRow() != cells.get(1).getRow() || cell.getCol() != cells.get(1).getCol()) {
+        } else if (!(cell == cells.get(cells.size() - 2))) {
             test = true;
         }
-
         if (test) {
             head = cell;
-            System.out.println("HHHHHHHHHHHHHH");
             if (cell.getFill().equals("empty")) {
                 cells.add(head);
                 cells.getFirst().setFill("empty");
@@ -46,7 +44,4 @@ public class Snake {
         }
         return true;
     }
-
-
-
 }

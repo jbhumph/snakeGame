@@ -28,10 +28,6 @@ public class GamePanel extends JPanel implements KeyListener {
         grid = new Grid(WIDTH, HEIGHT);
         snake = new Snake(grid.getCell(5, 5));
         grid.setCellFill();
-
-        // Start game loop
-        //timer = new Timer(200, this);
-        //timer.start();
     }
 
     @Override
@@ -73,17 +69,6 @@ public class GamePanel extends JPanel implements KeyListener {
             }
         }
     }
-
-    /*@Override
-    public void actionPerformed(ActionEvent e) {
-        boolean session = snake.move(cell, grid);
-        if (!session) {
-            timer.stop();
-            System.out.println("Game Over!"); // Optional: Display a popup later
-        }
-        repaint();
-    }*/
-
 
     @Override
     public void keyPressed(KeyEvent e) {

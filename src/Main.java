@@ -1,5 +1,11 @@
-import ui.GameFrame;
+/*
+    John Humphrey
+    CS240
+    Project 2
+    w/ Adam Sabet and Jing Lin Lai
+ */
 
+import ui.GameFrame;
 import javax.swing.*;
 
 public class Main {
